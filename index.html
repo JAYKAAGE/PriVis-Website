@@ -819,23 +819,25 @@
         </button>
       </div>
 
-      <form onsubmit="submitQuoteRequest(event)" class="mt-4 space-y-4 text-xs" data-netlify="true">
+      <form name="Web App Quote Request: PriVis" method="POST" onsubmit="submitQuoteRequest(event)" class="mt-4 space-y-4 text-xs" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="Web App Quote Request: PriVis" />
+        <p class="hidden"><label>Don’t fill this out: <input name="bot-field" /></label></p>
         <!-- 1. Business Name -->
         <div>
           <label class="block text-slate-300 font-medium mb-1">1. Business Name *</label>
-          <input type="text" id="qBusinessName" required placeholder="e.g., Eagle Business Solutions Corp" class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]" />
+          <input type="text" id="qBusinessName" name="business-name" required placeholder="e.g., Eagle Business Solutions Corp" class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]" />
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <!-- Work Email -->
           <div>
             <label class="block text-slate-300 font-medium mb-1">Work Email *</label>
-            <input type="email" id="qEmail" required placeholder="admin@company.com" class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]" />
+            <input type="email" id="qEmail" name="email" required placeholder="admin@company.com" class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]" />
           </div>
           <!-- 2. Size of Company -->
           <div>
             <label class="block text-slate-300 font-medium mb-1">2. Size of Company *</label>
-            <select id="qCompanySize" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
+            <select id="qCompanySize" name="company-size" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
               <option value="">Select employee count...</option>
               <option value="1-50 employees">1 – 50 employees</option>
               <option value="51-250 employees">51 – 250 employees</option>
@@ -848,7 +850,7 @@
         <!-- 3. Do you need support or just the application? -->
         <div>
           <label class="block text-slate-300 font-medium mb-1">3. Do you need support or just the application? *</label>
-          <select id="qSupportNeed" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
+          <select id="qSupportNeed" name="support-need" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
             <option value="">Select service requirement...</option>
             <option value="Just the application">Just the application (Self-managed)</option>
             <option value="Application + Standard Support">Application + Standard Support (Business hours)</option>
@@ -859,7 +861,7 @@
         <!-- 4. Using a locally hosted model or an API integration? -->
         <div>
           <label class="block text-slate-300 font-medium mb-1">4. Using a locally hosted model or an API integration? *</label>
-          <select id="qHostingModel" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
+          <select id="qHostingModel" name="hosting-model" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
             <option value="">Select AI / intelligence backend...</option>
             <option value="Locally hosted model">Locally hosted model (Air-gapped / On-premise)</option>
             <option value="API integration">API integration (Cloud-connected model)</option>
@@ -870,7 +872,7 @@
         <!-- 5. Do you require hardware configuration and set up? -->
         <div>
           <label class="block text-slate-300 font-medium mb-1">5. Do you require hardware configuration and set up? *</label>
-          <select id="qHardwareSetup" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
+          <select id="qHardwareSetup" name="hardware-setup" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
             <option value="">Select hardware assistance requirement...</option>
             <option value="No - software only">No — software installation only on existing hardware</option>
             <option value="Yes - appliance sizing & configuration">Yes — hardware sizing, configuration, and rack setup assistance</option>
@@ -881,7 +883,7 @@
         <!-- 6. What operating system does your Active Directory run inside of? -->
         <div>
           <label class="block text-slate-300 font-medium mb-1">6. What operating system does your Active Directory run inside of? *</label>
-          <select id="qAdOs" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
+          <select id="qAdOs" name="ad-os" required class="w-full px-3.5 py-2.5 rounded-xl bg-[#24364B] border border-[#38506E] text-white focus:outline-none focus:border-[#17B8A6]">
             <option value="">Select Active Directory environment OS...</option>
             <option value="Windows Server 2025 / 2022">Windows Server 2025 / 2022</option>
             <option value="Windows Server 2019 / 2016">Windows Server 2019 / 2016</option>
@@ -1412,9 +1414,27 @@
       const hwSetup = document.getElementById('qHardwareSetup').value;
       const adOs = document.getElementById('qAdOs').value;
 
-      closeQuoteModal();
-      e.target.reset();
-      showGlobalToast('Quote Request Submitted', `Thank you ${bizName}! Our enterprise solutions team will email your custom PriVis Web App quote shortly.`);
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      if (submitBtn) submitBtn.disabled = true;
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error(`Submission failed (${res.status})`);
+          closeQuoteModal();
+          form.reset();
+          showGlobalToast('Quote Request Submitted', `Thank you ${bizName}! Our enterprise solutions team will email your custom PriVis Web App quote shortly.`);
+        })
+        .catch(() => {
+          showGlobalToast('Submission Failed', 'Sorry, we could not send your quote request. Please try again in a moment.');
+        })
+        .finally(() => {
+          if (submitBtn) submitBtn.disabled = false;
+        });
     }
 
     function openAducCreateUserModal() {
