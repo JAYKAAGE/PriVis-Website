@@ -700,6 +700,79 @@
             Deploys a lightweight, read-only Windows collector service inside your network perimeter.
           </p>
         </div>
+
+        <!-- Step-by-step flow -->
+        <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="bg-[#24364B]/70 border border-[#324863] rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-[#101C30] border border-[#17B8A6]/40 text-[#17B8A6] flex items-center justify-center"><i data-lucide="server" class="w-5 h-5"></i></div>
+              <span class="font-code text-xs text-[#627995]">01</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-white">Install the Collector</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">Install a lightweight Windows service on any domain-joined server. It needs no agents on Domain Controllers and no schema changes.</p>
+          </div>
+          <div class="bg-[#24364B]/70 border border-[#324863] rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-[#101C30] border border-[#17B8A6]/40 text-[#17B8A6] flex items-center justify-center"><i data-lucide="refresh-cw" class="w-5 h-5"></i></div>
+              <span class="font-code text-xs text-[#627995]">02</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-white">Read-Only Sync</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">The collector uses a least-privilege service account to read users, groups, computers, ACLs, and GPO settings over LDAP. It never writes to the directory.</p>
+          </div>
+          <div class="bg-[#24364B]/70 border border-[#324863] rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-[#101C30] border border-[#17B8A6]/40 text-[#17B8A6] flex items-center justify-center"><i data-lucide="scan-search" class="w-5 h-5"></i></div>
+              <span class="font-code text-xs text-[#627995]">03</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-white">Analyze &amp; Detect</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">The detection engine checks each snapshot against compliance rules. It flags risky credentials, nested privilege paths, delegation issues, and setting drift.</p>
+          </div>
+          <div class="bg-[#24364B]/70 border border-[#324863] rounded-2xl p-6">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-10 h-10 rounded-xl bg-[#101C30] border border-[#17B8A6]/40 text-[#17B8A6] flex items-center justify-center"><i data-lucide="bell-ring" class="w-5 h-5"></i></div>
+              <span class="font-code text-xs text-[#627995]">04</span>
+            </div>
+            <h3 class="font-heading text-lg font-bold text-white">Alert &amp; Remediate</h3>
+            <p class="mt-2 text-sm text-slate-300 leading-relaxed">Findings are ranked by severity and come with guided remediation scripts. Administrators review the scripts and run them themselves.</p>
+          </div>
+        </div>
+
+        <!-- Data flow -->
+        <div class="mt-12 bg-[#16243B] border border-[#2C415A] rounded-2xl p-6 sm:p-8">
+          <div class="text-xs font-semibold tracking-[0.14em] text-[#55D6CB] uppercase">Data Flow</div>
+          <div class="mt-5 flex flex-col lg:flex-row items-stretch lg:items-center gap-3 font-code text-xs sm:text-sm">
+            <div class="flex-1 bg-[#24364B] border border-[#344B66] rounded-xl p-4 text-center text-white">Active Directory<div class="text-[11px] text-[#627995] mt-1">Domain Controllers</div></div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-[#17B8A6] mx-auto rotate-90 lg:rotate-0"></i>
+            <div class="flex-1 bg-[#24364B] border border-[#17B8A6]/40 rounded-xl p-4 text-center text-white">PriVis Collector<div class="text-[11px] text-[#627995] mt-1">LDAP read-only</div></div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-[#17B8A6] mx-auto rotate-90 lg:rotate-0"></i>
+            <div class="flex-1 bg-[#24364B] border border-[#344B66] rounded-xl p-4 text-center text-white">Detection Engine<div class="text-[11px] text-[#627995] mt-1">Rules &amp; risk scoring</div></div>
+            <i data-lucide="arrow-right" class="w-5 h-5 text-[#17B8A6] mx-auto rotate-90 lg:rotate-0"></i>
+            <div class="flex-1 bg-[#24364B] border border-[#344B66] rounded-xl p-4 text-center text-white">Console / Web App<div class="text-[11px] text-[#627995] mt-1">Findings &amp; alerts</div></div>
+          </div>
+        </div>
+
+        <!-- Security -->
+        <div class="mt-12">
+          <div class="text-xs font-semibold tracking-[0.14em] text-[#17B8A6] uppercase">Security by Design</div>
+          <h2 class="mt-2 font-heading text-2xl sm:text-3xl font-bold text-white">Built to be trusted inside your perimeter</h2>
+          <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-[#24364B]/70 border border-[#324863] rounded-2xl p-6">
+              <i data-lucide="shield-check" class="w-6 h-6 text-[#17B8A6]"></i>
+              <h3 class="mt-3 font-heading text-base font-bold text-white">Zero-Write Access</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">PriVis never changes directory objects. Every remediation is a script that an administrator reviews and runs.</p>
+            </div>
+            <div class="bg-[#24364B]/70 border border-[#324863] rounded-2xl p-6">
+              <i data-lucide="lock" class="w-6 h-6 text-[#17B8A6]"></i>
+              <h3 class="mt-3 font-heading text-base font-bold text-white">Encrypted &amp; Local</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">Directory data stays inside your network. It is encrypted at rest and in transit, and password hashes are never collected.</p>
+            </div>
+            <div class="bg-[#24364B]/70 border border-[#324863] rounded-2xl p-6">
+              <i data-lucide="user-cog" class="w-6 h-6 text-[#17B8A6]"></i>
+              <h3 class="mt-3 font-heading text-base font-bold text-white">Least Privilege</h3>
+              <p class="mt-2 text-sm text-slate-300 leading-relaxed">PriVis runs as a standard domain user with read permissions only. It needs no Domain Admin or other elevated rights.</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
